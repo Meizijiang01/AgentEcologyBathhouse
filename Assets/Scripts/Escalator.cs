@@ -24,7 +24,7 @@ public class Escalator : Conveyance
             Time.deltaTime * Speed
             );
 
-        if (Vector3.Distance(guest.transform.position, _guests[guest][0]) < 0.1)
+        if (Vector3.Distance(guest.transform.position, _guests[guest][0]) < 0.01)
         {
             _guests[guest].RemoveAt(0);
 
@@ -34,5 +34,10 @@ public class Escalator : Conveyance
                 guest.NextDestination();
             }
         }
+    }
+
+    public override int NumberOfGuests()
+    {
+        return _guests.Count;
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuestEntrance : Destination
+public class EmployeeEntrance : Destination
 {
-    public bool EntranceOpen = true;
 }

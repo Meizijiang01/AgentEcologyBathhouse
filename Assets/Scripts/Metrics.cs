@@ -32,11 +32,6 @@ public class Metrics : MonoBehaviour
         List<Guest> guests = GuestManager.Instance.GuestList();
         foreach (Guest guest in guests)
         {
-            
-                if (guest._currentConveyance.GetType() == typeof(Vehicle))
-            {
-               
-            }
             if (guest.GetSliderValue() != GuestSlider)
                 guest.SetSlider(GuestSlider);
             if (guest.GetText() != GuestText)

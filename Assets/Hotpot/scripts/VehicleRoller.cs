@@ -120,7 +120,7 @@ public class VehicleRoller : Conveyance
         _agent.isStopped = false;
     }
 
-    public override float WeightedTravelDistance(Vector3 start, Vector3 end)
+    public override float WeightedTravelDistance(Vector3 start, Vector3 end, Guest gues)
     {
         Vector3 destination = _agent.destination;
 
@@ -135,17 +135,17 @@ public class VehicleRoller : Conveyance
         return distance;
     }
 
-    public override Vector3 StartPosition(Vector3 vec)
+    public override Vector3 StartPosition(Vector3 vec,Guest guest)
     {
         return transform.position;
     }
 
-    public override Vector3 EndPosition(Vector3 vec)
+    public override Vector3 EndPosition(Vector3 vec, Guest guest)
     {
         return vec; //assuming vehicle will take guest to final destination
     }
 
-    public override Destination GetDestination(Vector3 vec)
+    public override Destination GetDestination(Vector3 vec,Guest guest)
     {
         return _dest;
     }

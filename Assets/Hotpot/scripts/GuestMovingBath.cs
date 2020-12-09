@@ -71,7 +71,7 @@ public class GuestMovingBath : Guest
 
                 if (Baths == 0) //if guest is done with baths
                 {
-                    Destination = GuestManager.Instance.RandomEntrance();
+                    Destination = GuestManager.Instance.RandomEntrance(this);
                 }
                 else //if guest needs new bath assigned
                 {
@@ -102,7 +102,7 @@ public class GuestMovingBath : Guest
 
                 if (Baths == 0) //if guest is done with baths
                 {
-                    Destination = GuestManager.Instance.RandomEntrance();
+                    Destination = GuestManager.Instance.RandomEntrance(this);
                 }
                 else //if guest needs new bath assigned
                 {
@@ -205,7 +205,7 @@ public class GuestMovingBath : Guest
         _agent.isStopped = false;
     }
 
-    public override void NextDestination()
+    public override void NextDestination(Destination destination = null)
     {
         _agent.enabled = true;
         _destinations.RemoveAt(0);
@@ -215,61 +215,7 @@ public class GuestMovingBath : Guest
     }
 
    
-    public override void FindPath(ref Conveyance currentConveyance, ref List<Destination> destinations)
-    {
-        //Debug.Break();
-
-        //get walking path distance
-        Vector3 guestPosition = transform.position;
-        Vector3 destinationPosition = Destination.transform.position;
-        float distance = AgentWalkDistance(_agent, transform, guestPosition, destinationPosition, Color.yellow);
-
-        //test all conveyances
-        currentConveyance = null;
-        Conveyance[] conveyances = GameObject.FindObjectsOfType<Conveyance>();
-        foreach (Conveyance c in conveyances)
-        {
-            //guard statement, how many people are on the conveyance
-            if (c.IsFull()) continue;
-
-            float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
-            float distC = c.WeightedTravelDistance(guestPosition, destinationPosition);
-            float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition), destinationPosition, Color.red);
-
-            //Debug.DrawLine(guestPosition, c.StartPosition(), Color.black);
-            Debug.DrawLine(c.StartPosition(guestPosition), c.EndPosition(destinationPosition), Color.cyan);
-            //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
-
-            if (distance > distToC + distC + distFromC)
-            {
-                currentConveyance = c;
-                distance = distToC + distC + distFromC;
-            }
-        }
-
-        //if there are no conveyances, we update the destination list with current destination
-        if (currentConveyance == null)
-        {
-            destinations.Clear();
-            destinations.Add(Destination);
-            UpdateDestination();
-            return;
-        }
-
-        //update destinations
-        if (currentConveyance.GetType() == typeof(Vehicle))
-        {
-            Vehicle vehicle = _currentConveyance as Vehicle;
-            vehicle.SetWaiting(this);
-        }
-
-        destinations.Clear();
-        destinations.Add(currentConveyance.GetDestination(guestPosition));
-        destinations.Add(Destination);
-        Destination = destinations[0];
-        UpdateDestination();
-    }
-
+   
     /// <summary>
     /// Start bath by changing agent status and stopping the agent
     /// </summary>
@@ -292,7 +238,7 @@ public class GuestMovingBath : Guest
         //_agent.transform.parent = go.transform;
         _agent.isStopped = true;
         _agent.transform.SetParent(go.transform, true);
-        Debug.Log(_agent.transform.parent);
+        //Debug.Log(_agent.transform.parent);
         SetText("BathRiding");
     }
 
