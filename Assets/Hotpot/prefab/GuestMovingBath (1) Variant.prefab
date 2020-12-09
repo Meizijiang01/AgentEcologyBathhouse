@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7110624736902806191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.06057
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 369.28558
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -200.42297
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946571, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946575, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_Name
+      value: GuestMovingBath (1) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094725385975451411, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849206290327072187, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056395116676300755, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: BathTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056395116676300755, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b,
+        type: 3}
+      propertyPath: Baths
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c8d61cb1313cd34b88f9a5c2b471f8b, type: 3}

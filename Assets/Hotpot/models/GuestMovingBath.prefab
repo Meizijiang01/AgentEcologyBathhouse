@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 3195382997371946572}
   - component: {fileID: 3195382997371946568}
   - component: {fileID: 7056395116676300755}
+  - component: {fileID: -7173538159884653930}
   m_Layer: 0
   m_Name: GuestMovingBath
   m_TagString: Untagged
@@ -408,6 +409,20 @@ MonoBehaviour:
   _destinations: []
   _tempDestination: {fileID: 0}
   WanderTimer: {x: 2, y: 5}
+--- !u!114 &-7173538159884653930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195382997371946575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49325c2f953303246a7154bb981877d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Alt: {fileID: 0}
+  intense: 0
 --- !u!1 &4714539444083085508
 GameObject:
   m_ObjectHideFlags: 0

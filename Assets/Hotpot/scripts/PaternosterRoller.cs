@@ -7,7 +7,6 @@ public class PaternosterRoller : Conveyance
 {
     public GameObject Cars;
     public int MaxLoad;
-    public GameObject StandPositions;
 
     private Destination[] _destinations;
     private Dictionary<GameObject, int> _cars = new Dictionary<GameObject, int>();
@@ -15,20 +14,36 @@ public class PaternosterRoller : Conveyance
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
     private Dictionary<GameObject, List<Guest>> _carRiders = new Dictionary<GameObject, List<Guest>>(); //keeps track of which cars have riders
     private List<Guest> _riders = new List<Guest>();
-    //private Dictionary<GameObject, float> _waitTime = new Dictionary<GameObject, float>();
-    
-    private Dictionary<GameObject, Guest> _standpositions = new Dictionary<GameObject, Guest>();
+    private Dictionary<GameObject, float> _waitTime = new Dictionary<GameObject, float>();
+
     //car states
     public enum State { MOVING, WAITING };
     public State CurrentState = State.WAITING;
-   
+    private float _maxWait = 1.0f;
+    //private float _waitTime = 0.0f;
 
     private void Start()
     {
         SetDestination();
+
+        //initialize waittime
+        for (int i = 0; i < Cars.transform.childCount; i++)
+        {
+
+            _waitTime.Add(Cars.transform.GetChild(i).gameObject, i);
+        }
+
+        List<GameObject> Keys = _waitTime.Keys.ToList();
+        foreach (GameObject car in Keys)
+        {
+            _waitTime[car] = _maxWait;
+        }
     }
+
+
     public override void SetDestination()
     {
+
         _destinations = GetComponentsInChildren<Destination>();
 
 
@@ -67,6 +82,15 @@ public class PaternosterRoller : Conveyance
             GameObject car = Cars.transform.GetChild(i).gameObject;
            
             //timer until car starts moving
+            if (_waitTime[car] <= 0)
+            {
+                CurrentState = State.MOVING;
+            }
+            else
+            {
+                _waitTime[car] -= Time.deltaTime;
+                return;
+            }
 
             //if car is not full
             if (_carRiders[car].Count< MaxLoad)
@@ -124,28 +148,35 @@ public class PaternosterRoller : Conveyance
                
             }
 
+            //move car
+            if (CurrentState == State.MOVING)
+            {
+                int q = _cars[car] + 1;
+                if (q >= _positions.Count) { q = 0; }
+                float CarSpeed = Mathf.Abs(Vector3.Distance(_positions[_cars[car]], _positions[q])) / 6f;
 
-            int q = _cars[car] + 1;
-            if (q >= _positions.Count) { q = 0; }
-            float CarSpeed = Mathf.Abs(Vector3.Distance(_positions[_cars[car]], _positions[q])) / 6f;
+                //when the car reaches the position, we increase the index to the next position
+                if (Mathf.Abs(Vector3.Distance(car.transform.position , _positions[_cars[car]]))<=0.02f)
+                {
+                    int p = _cars[car] + 1;
+                    if (p >= _positions.Count) { p = 0; }
+                    _cars[car] = p;
+                    //Debug.Log(p);
+                }
 
-            //when the car reaches the position, we increase the index to the next position
+               
+                Vector3 newPos = Vector3.MoveTowards(car.transform.position,
+                _positions[_cars[car]], 
+                CarSpeed * Time.deltaTime);
+                car.transform.position = newPos;
+                Debug.DrawLine(car.transform.position, _positions[_cars[car]]);
+
+            }
             if (Mathf.Abs(Vector3.Distance(car.transform.position, _positions[_cars[car]])) <= 0.02f)
             {
-                int p = _cars[car] + 1;
-                if (p >= _positions.Count) { p = 0; }
-                _cars[car] = p;
-                //Debug.Log(p);
+                _waitTime[car] = _maxWait;
+                CurrentState = State.WAITING;
             }
-
-
-            Vector3 newPos = Vector3.MoveTowards(car.transform.position,
-            _positions[_cars[car]],
-            CarSpeed * Time.deltaTime);
-            car.transform.position = newPos;
-            //Debug.DrawLine(car.transform.position, _positions[_cars[car]]);
-           
-      
             //return;
 
         }
@@ -160,7 +191,7 @@ public class PaternosterRoller : Conveyance
         {
             guest.transform.position = Vector3.MoveTowards(guest.transform.position,
                 car.transform.position,
-                Time.deltaTime * Speed * 180);
+                Time.deltaTime * Speed * 8);
 
             if (Vector3.Distance(guest.transform.position, car.transform.position) < 0.01f) { loading = false; }
             yield return new WaitForEndOfFrame();
