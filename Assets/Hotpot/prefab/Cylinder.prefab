@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2072776263930665570}
   - component: {fileID: 3274744587388575694}
   - component: {fileID: 1643468615536671150}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Bath
   m_Icon: {fileID: 0}
@@ -116,6 +116,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4931500160225759564}
     m_Modifications:
+    - target: {fileID: -4333553242395888130, guid: eeb625d2e6dfae94c86e91eb865b5256,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: eeb625d2e6dfae94c86e91eb865b5256,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -186,10 +191,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.25002
       objectReference: {fileID: 0}
+    - target: {fileID: -3039209904452681194, guid: eeb625d2e6dfae94c86e91eb865b5256,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: eeb625d2e6dfae94c86e91eb865b5256,
         type: 3}
       propertyPath: m_Name
       value: 201201_tub
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: eeb625d2e6dfae94c86e91eb865b5256,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879255784987225003, guid: eeb625d2e6dfae94c86e91eb865b5256,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb625d2e6dfae94c86e91eb865b5256, type: 3}

@@ -29,6 +29,24 @@ public class MovableBathtubVehicle1 : MonoBehaviour
 
     private void Update()
     {
+        
+        Vector3 position = Vector3.zero;
+        if (ClickObject("MovingBath", ref position))
+        {
+            //Debug.Log("Click Bath");
+            //if we are at obstacle limit, remove oldest obstacle
+            TubSpeed = TubSpeed+2.0f;
+            if (TubSpeed >8.0f)
+            {
+                TubSpeed = 2.0f;
+            }
+
+            //instantiate obstacle
+
+        }
+        
+
+
         for (int i = 0; i < Tubs.transform.childCount; i++)
         {
             GameObject tub = Tubs.transform.GetChild(i).gameObject;
@@ -54,5 +72,22 @@ public class MovableBathtubVehicle1 : MonoBehaviour
         }
     }
 
-   
+    private bool ClickObject(string layer, ref Vector3 vec)
+    {
+        //guard statement if no moust button clicked
+        if (!Input.GetMouseButtonDown(0)) { return false; }
+        Vector3 screenPoint = Input.mousePosition; //mouse position on the screen
+        Ray ray = Camera.main.ScreenPointToRay(screenPoint); //converting the mouse position to ray from mouse position
+        RaycastHit hit;
+        if (!Physics.Raycast(ray.origin, ray.direction, out hit)) return false; //was something hit?
+
+        //Debug.Log(hit.transform.gameObject.layer+ "  "+LayerMask.NameToLayer(layer));
+        if (hit.transform.gameObject.layer != 11) return false; //was hit on the layer?
+      
+        //if a layer was hit, set the camera follow and lookat
+        vec = hit.point;
+        return true;
+    }
+
+
 }

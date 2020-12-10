@@ -42,8 +42,8 @@ public class ObstacleManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(screenPoint); //converting the mouse position to ray from mouse position
         RaycastHit hit;
         if (!Physics.Raycast(ray.origin, ray.direction, out hit)) return false; //was something hit?
-        Debug.Log(hit.transform.gameObject);
-        //Debug.Log(LayerMask.NameToLayer(layer));
+
+        Debug.Log(hit.transform.gameObject.layer);
         if (hit.transform.gameObject.layer != LayerMask.NameToLayer(layer)) return false; //was hit on the layer?
         Debug.Log(hit);
         //if a layer was hit, set the camera follow and lookat
