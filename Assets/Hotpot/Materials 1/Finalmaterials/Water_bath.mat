@@ -22,13 +22,15 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Water_bath
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _BLENDMODE_ALPHA _BLENDMODE_PRESERVE_SPECULAR_LIGHTING _ENABLE_FOG_ON_TRANSPARENT
-    _NORMALMAP_TANGENT_SPACE _SURFACE_TYPE_TRANSPARENT
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _BLENDMODE_ALPHA _BLENDMODE_PRESERVE_SPECULAR_LIGHTING
+    _EMISSION _ENABLE_FOG_ON_TRANSPARENT _NORMALMAP_TANGENT_SPACE _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
+    MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
@@ -184,6 +186,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1F3E4532: 1
+    - Vector1_26DC93FA: 3
+    - Vector1_85C69B58: 2
+    - Vector1_C1F133EA: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -263,7 +269,7 @@ Material:
     - _MaterialID: 1
     - _Metallic: 0.00024860998
     - _MirrorOnBack: 0
-    - _Mode: 0
+    - _Mode: 3
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _OcclusionStrength: 1
@@ -299,9 +305,17 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 1
+    - _TessellationBackFaceCullEpsilon: -0.25
+    - _TessellationFactor: 4
+    - _TessellationFactorMaxDistance: 50
+    - _TessellationFactorMinDistance: 20
+    - _TessellationFactorTriangleSize: 100
+    - _TessellationMode: 0
+    - _TessellationShapeFactor: 0.75
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
+    - _ThicknessMultiplier: 1
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -321,6 +335,11 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_12FBE08F: {r: 0, g: 0.522428, b: 1, a: 0}
+    - Color_2E7C0480: {r: 0, g: 1.747816, b: 2.670157, a: 0}
+    - Color_95F5383E: {r: 1, g: 0.4992268, b: 0, a: 0}
+    - Color_ED73084F: {r: 0, g: 2, b: 1.834342, a: 0}
+    - Vector2_7640B06C: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0, g: 0.569185, b: 1, a: 0.6509804}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0.569185, b: 1, a: 0.6509804}
