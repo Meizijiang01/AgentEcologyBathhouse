@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2163393980674378176}
   - component: {fileID: 6514467809619529430}
   - component: {fileID: 2051564604669889509}
-  - component: {fileID: 6830656101386005612}
   - component: {fileID: -6935939460593834595}
+  - component: {fileID: 7910558262798888781}
   m_Layer: 0
   m_Name: GuestMovingBath
   m_TagString: Untagged
@@ -96,29 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6830656101386005612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4462513468332350857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a81c8922e9cfd649947c023e6e7def0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  Slider: {fileID: 0}
-  Destination: {fileID: 0}
-  Baths: 3
-  BathTime: 5
-  Status: 0
-  _agent: {fileID: 0}
-  _currentConveyance: {fileID: 0}
-  _destinations: []
-  _tempDestination: {fileID: 0}
-  WanderTimer: {x: 2, y: 5}
 --- !u!195 &-6935939460593834595
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -141,3 +118,26 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7910558262798888781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462513468332350857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f84906d58492d46b5ff7ae097db115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 0}
+  Slider: {fileID: 0}
+  Destination: {fileID: 0}
+  Baths: 4
+  BathTime: 5
+  Status: 0
+  _agent: {fileID: 0}
+  _currentConveyance: {fileID: 0}
+  _destinations: []
+  _tempDestination: {fileID: 0}
+  WanderTimer: {x: 2, y: 5}

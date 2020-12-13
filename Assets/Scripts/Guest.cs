@@ -114,6 +114,38 @@ public class Guest : MonoBehaviour
 
             return; //so it doesn't run any code below
         }
+        if (Status == Action.BATHRIDING)
+        {
+            _agent.enabled = false;
+            _bathTime += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
+            if (_bathTime > BathTime + 3f)
+            {
+                _tempDestination = Destination;
+                Destination = null;
+
+                if (Baths == 0) //if guest is done with baths
+                {
+                    Destination = GuestManager.Instance.RandomEntrance(this);
+                }
+                else //if guest needs new bath assigned
+                {
+                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside metho
+                }
+                if (Destination == null) return;
+
+                SetText("Walking");
+                //_tempDestination.RemoveGuest(this); //remove guest from current bath
+                _destinations[0].RemoveGuest(this); //remove guest from current bath
+                _destinations.RemoveAt(0); //remove current bath from destination list
+                _bathTime = 0; //reseting bath time
+                Status = Action.WALKING;  //start walking
+                _agent.enabled = true;
+                UpdateDestination(); //update new destination
+                FindPath(ref _currentConveyance, ref _destinations); //finding best path
+            }
+
+            return; //so it doesn't run any code below
+        }
 
         //guard statement
         if (Destination == null) return; //return stops the update here until next frame
@@ -124,6 +156,14 @@ public class Guest : MonoBehaviour
             Vector3 forward = _agent.velocity;
             forward.y = 0;
             transform.forward = forward;
+        }
+
+        if (Status == Action.WALKING)
+        {
+            if (Vector3.Distance(transform.position, Destination.transform.position) > 2.1f)
+            {
+                UpdateDestination();
+            }
         }
         DestinationDistance(); //++++
     }
@@ -138,23 +178,45 @@ public class Guest : MonoBehaviour
     private void DestinationDistance()
     {
         //test agent distance from destination
-        if (Vector3.Distance(transform.position, Destination.transform.position) < 1.1f)
+        //UpdateDestination();
+        
+        if (Vector3.Distance(transform.position, Destination.transform.position) < 2.1f)
         {
+            //Debug.Log(Destination);
             if (Destination.GetComponentInParent<Conveyance>())
             {
                 Status = Action.RIDING;
                 _agent.enabled = false;
                 _currentConveyance = Destination.GetComponentInParent<Conveyance>();
                 return;
+                
             }
             else if (Destination.tag == "Bath")
             {
-                StartBath();
-                return;
+                if (Destination.GetType() == typeof(DestinationMovingBath))
+                {
+                    UpdateDestination();
+                    GameObject go = Destination.transform.gameObject;
+                    _agent.transform.position = go.transform.position;
+                    _agent.transform.parent = go.transform;
+                    //Debug.Log(go);
+                    StartMovingBath(go);
+                    return;
+                }
+                if (Destination.GetType() == typeof(Destination))
+                {
+                    StartBath();
+                    //Debug.Log("Bath");
+                    return;
+                }
+
+                //Debug.Log(Destination.name);
+               
             }
             else if (Destination.tag == "Entrance")
             {
                 Destination.gameObject.GetComponent<GuestManager>().GuestExit(this);
+                Debug.Log("exit");
                 //GuestManager manager = Destination.gameObject.GetComponent<GuestManager>();
                 //manager.GuestExit(this);
                 return;
@@ -247,8 +309,7 @@ public class Guest : MonoBehaviour
 
     public virtual void FindPath(ref Conveyance currentConveyance, ref List<Destination> destinations)
     {
-        //Debug.Break();
-
+        
         //get walking path distance
         Vector3 guestPosition = transform.position;
         Vector3 destinationPosition = Destination.transform.position;
@@ -262,11 +323,9 @@ public class Guest : MonoBehaviour
             //guard statement,
             if (c.IsFull()) continue; //how many people are on the conveyance
             if (!c.IsConveyanceActive()) continue; //is conveyance active
-
             float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition, this), Color.green);
             float distC = c.WeightedTravelDistance(guestPosition, destinationPosition, this);
             float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition, this), destinationPosition, Color.red);
-
             //Debug.DrawLine(guestPosition, c.StartPosition(), Color.black);
             Debug.DrawLine(c.StartPosition(guestPosition, this), c.EndPosition(destinationPosition, this), Color.cyan);
             //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
@@ -294,6 +353,7 @@ public class Guest : MonoBehaviour
             vehicle.SetWaiting(this);
         }
 
+        
         destinations.Clear();
         destinations.Add(currentConveyance.GetDestination(guestPosition, this));
         destinations.Add(Destination);
@@ -311,6 +371,19 @@ public class Guest : MonoBehaviour
         Status = Action.BATHING;
         _agent.isStopped = true;
         SetText("Bathing");
+    }
+
+    private void StartMovingBath(GameObject go)
+    {
+        Baths--;
+        _visitedBaths.Add(Destination);
+        Status = Action.BATHRIDING;
+        _agent.enabled = true;
+        _agent.transform.position = go.transform.position;
+        //_agent.transform.parent = go.transform;
+        _agent.isStopped = true;
+        _agent.transform.SetParent(go.transform, true);
+        SetText("BathRiding");
     }
 
     public virtual Destination GetUltimateDestination()
