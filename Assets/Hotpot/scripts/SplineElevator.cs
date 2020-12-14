@@ -113,11 +113,16 @@ public class SplineElevator : Conveyance
                     Guest guest = kvp.Key;
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y - car.transform.localScale.y) > 1.2f) continue;
+                    float dist = Vector3.Distance(guest.transform.position, car.transform.position) - car.transform.localScale.y;
+                    if (dist > 4.2f)
+                    {
+                        continue;
+                    }
+                        
 
                     //test guest direction
-                    float guestDirection = kvp.Value.y - guest.transform.position.y;
-                    if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
+                   // float guestDirection = kvp.Value.y - guest.transform.position.y;
+                    //if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
 
                     //load guest
                     _riders.Add(guest);
@@ -132,7 +137,8 @@ public class SplineElevator : Conveyance
             {
                 Guest guest = _carRiders[car];
                 Vector3 UnloadPosition = _guests[guest];
-                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y - car.transform.localScale.y) < 1.2f)
+                float dist = Vector3.Distance(UnloadPosition, car.transform.position)-car.transform.localScale.y;
+                if (dist< 0.2f)
                 {
                     //unload guest
                     _carRiders[car] = null;
@@ -168,7 +174,7 @@ public class SplineElevator : Conveyance
             guest.transform.position = Vector3.MoveTowards(guest.transform.position,
                 car.transform.position,
                 Time.deltaTime * Speed * 8);
-            Debug.Log("load");
+            //Debug.Log("load");
 
             if (Vector3.Distance(guest.transform.position, car.transform.position) < 0.01f) { loading = false; }
             yield return new WaitForEndOfFrame();

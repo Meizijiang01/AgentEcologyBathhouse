@@ -36,6 +36,7 @@ public class MovableBathtubVehicle1 : MonoBehaviour
             //Debug.Log("Click Bath");
             //if we are at obstacle limit, remove oldest obstacle
             TubSpeed = TubSpeed+2.0f;
+            //Debug.Log(TubSpeed);
             if (TubSpeed >8.0f)
             {
                 TubSpeed = 2.0f;

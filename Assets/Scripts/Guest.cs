@@ -162,7 +162,11 @@ public class Guest : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Destination.transform.position) > 2.1f)
             {
-                UpdateDestination();
+                if (!Destination.GetComponentInParent<Conveyance>())
+                {
+                    UpdateDestination();
+                }
+                    
             }
         }
         DestinationDistance(); //++++

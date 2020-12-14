@@ -15,7 +15,7 @@ public class ObstacleManager : MonoBehaviour
         Vector3 position = Vector3.zero;
         if (ClickObject("Floor", ref position))
         {
-            Debug.Log("Click Floor");
+            //Debug.Log("Click Floor");
             //if we are at obstacle limit, remove oldest obstacle
             if (_obstacles.Count >= ObstacleLimit)
             {
@@ -27,6 +27,7 @@ public class ObstacleManager : MonoBehaviour
             //instantiate obstacle
             GameObject obstacle = Instantiate(ObstalcePrefab, position, Quaternion.identity); //adding our gameobject to scene
             _obstacles.Add(obstacle);
+            Debug.Log("addbath");
             return;
         }
 
@@ -43,12 +44,12 @@ public class ObstacleManager : MonoBehaviour
         RaycastHit hit;
         if (!Physics.Raycast(ray.origin, ray.direction, out hit)) return false; //was something hit?
 
-        Debug.Log(hit.transform.gameObject.layer);
+        //Debug.Log(hit.transform.gameObject.layer);
         if (hit.transform.gameObject.layer != LayerMask.NameToLayer(layer)) return false; //was hit on the layer?
-        Debug.Log(hit);
+        
         //if a layer was hit, set the camera follow and lookat
         vec = hit.point;
-        Debug.Log(vec);
+        //Debug.Log(vec);
         return true;
     }
 

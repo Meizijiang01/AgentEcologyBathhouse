@@ -507,6 +507,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
+      objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -581,6 +586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
@@ -5445,6 +5455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
+      objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6004,6 +6019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
@@ -6699,6 +6719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
@@ -8063,6 +8088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
+      objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9061,6 +9091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
@@ -11155,6 +11190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
@@ -13544,7 +13584,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911934938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
@@ -13932,8 +13972,8 @@ MonoBehaviour:
   - {fileID: 1807605882}
   - {fileID: 921501671}
   - {fileID: 413531915}
-  Weight: 2
-  Speed: 4
+  Weight: 1
+  Speed: 10
   Cars: {fileID: 2145478687}
   SplinePath:
   - {fileID: 221307813}
@@ -15001,6 +15041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388045944130144166, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Conveyance
       objectReference: {fileID: 0}
     - target: {fileID: 4639213592796019428, guid: 6d0f7333b8bb9de499bfc10c6bae23f9,
         type: 3}
