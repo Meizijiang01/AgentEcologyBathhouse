@@ -290,9 +290,9 @@ Material:
     m_Colors:
     - Color_2AB5F6C0: {r: 0.227451, g: 0, b: 2, a: 0}
     - Color_E41785AE: {r: 0, g: 1, b: 0.8048501, a: 0}
-    - _BaseColor: {r: 0, g: 0.49014425, b: 1, a: 0.1764706}
+    - _BaseColor: {r: 0.95247644, g: 0.8537736, b: 1, a: 0.047058824}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.4901442, b: 1, a: 0.1764706}
+    - _Color: {r: 0.95247644, g: 0.8537736, b: 1, a: 0.047058824}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Connections
-  m_Shader: {fileID: -6465566751694194690, guid: 721fa0e23f024be42bca66a999fd42fe,
+  m_Shader: {fileID: -6465566751694194690, guid: c90b73a4194019b4e8b13431817cfcf7,
     type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 2
@@ -275,13 +275,13 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_25C363C6: {r: 0.5545361, g: 0.50729793, b: 1.8867924, a: 0}
+    - Color_25C363C6: {r: 2.519016, g: 2.519016, b: 2.519016, a: 0}
     - Vector2_8C52FA35: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9254902, g: 0.3778646, b: 0.2117646, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.9254902, g: 0.37786457, b: 0.21176457, a: 1}
-    - _Color_1: {r: 0, g: 0.029119492, b: 1, a: 0}
-    - _Color_2: {r: 0.6745283, g: 1, b: 0.93773925, a: 0}
+    - _Color_1: {r: 0.15563476, g: 0.04685831, b: 0.3679245, a: 0}
+    - _Color_2: {r: 0.8980392, g: 0.6158239, b: 0.42745098, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
