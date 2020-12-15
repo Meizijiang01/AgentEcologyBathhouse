@@ -6,31 +6,60 @@ public class Atrium : MonoBehaviour
 {
     public Material Main;
     public Material Alt;
+    public Material Alt1;
 
-    public void OnTriggerEnter(Collider other)
+    public float timerCountDown = 5.0f;
+
+    private bool isPlayerColliding = false;
+    private bool isPlayerCollidingenough = false;
+
+    public float bathing=0.0f;
+
+   
+
+    void Update()
     {
-        if (!other.GetComponent<Guest>()) return;
-        Debug.Log(other.transform.parent);
-        if (!other.transform.parent == this.transform) return;
-        //Debug.Log(other.transform.parent);
-        //Debug.Log(this);
-        //GameObject light= transform.Find("bathtup_light");
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        mr.material = Alt;
-       
-        //guest.SetText("Inside Atrium");
-        //guest.SetSlider(1);
-    }
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "Player" && bathing==0.0f)
+            {
+                //Debug.Log("collide");
+                MeshRenderer mr = GetComponent<MeshRenderer>();
+                mr.material = Alt;
+                bathing = 1.0f;
+                return;
+            }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (!other.GetComponent<Guest>()) return;
-       
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        mr.material = Main;
 
-        Guest guest = other.GetComponent<Guest>();
-        //guest.SetText("Outside Atrium");
-        //guest.SetSlider(0);
+        }
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "Player" && bathing>0.0f)
+            {
+                //Debug.Log("collide");
+                bathing = 0.0f;
+            }
+
+
+        }
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag == "Player" && bathing>0.0f)
+            {
+                Debug.Log("collide1");
+                MeshRenderer mr = GetComponent<MeshRenderer>();
+                mr.material = Alt1;
+                
+                return;
+            }
+
+        }
+
+
+
+        //Debug.Log(isPlayerColliding);
     }
+    
 }

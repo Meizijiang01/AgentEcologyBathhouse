@@ -11,13 +11,23 @@ public class BubbleMetrics : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other != GameObject.Find("Guest(Clone)"))
-        {   
-
+        {
+            
+            MeshRenderer mr = GetComponent<MeshRenderer>();
+            mr.material = Alt;
           
-                DrawSpheres();
-                intense++;
+            DrawSpheres();
+            intense++;
                 //Debug.Log(intense);
-          
+            /**
+            var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            Debug.Log("sphere");
+
+            var renderer = sphere.GetComponent<Renderer>();
+
+            renderer.sharedMaterial = Alt;
+            **/
+
         }
 
 
