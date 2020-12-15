@@ -1656,6 +1656,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cylinder (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3274744587388575694, guid: 278f813cd7f41b0448c2c10feb72c471,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4931500160225759564, guid: 278f813cd7f41b0448c2c10feb72c471,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4277,7 +4282,7 @@ MonoBehaviour:
   GuestPrefab: {fileID: 4462513468332350857, guid: 78c8c59ddd4d3e44c93d93ca9f08b394,
     type: 3}
   EmployeePrefab: {fileID: 0}
-  EntranceRate: 0.5
+  EntranceRate: 360
 --- !u!1001 &698815738
 PrefabInstance:
   m_ObjectHideFlags: 0

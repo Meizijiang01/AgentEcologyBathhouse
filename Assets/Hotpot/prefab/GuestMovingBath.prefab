@@ -133,7 +133,7 @@ MonoBehaviour:
   Text: {fileID: 0}
   Slider: {fileID: 0}
   Destination: {fileID: 0}
-  Baths: 4
+  Baths: 3
   BathTime: 5
   Status: 0
   _agent: {fileID: 0}
